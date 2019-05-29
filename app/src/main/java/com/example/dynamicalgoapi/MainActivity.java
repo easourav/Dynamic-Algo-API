@@ -44,7 +44,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        cencelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void createPost() {

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="5dp"
-    android:background="@drawable/border_gradient">
+    android:background="@drawable/border_gradient"
+    android:layout_marginBottom="1dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginRight="2dp"
+    android:layout_marginLeft="2dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,21 +24,21 @@
             android:paddingLeft="16dp"
             android:paddingRight="5dp"
             android:textColor="@color/colorBlack"
-            tools:ignore="RtlHardcoded" />
+             />
         <TextView
-            android:id="@+id/nameTv"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/name"
             android:paddingTop="10dp"
             android:textSize="16sp"
             android:textColor="@color/colorBlack"
-            tools:ignore="RtlHardcoded" />
+             />
     </LinearLayout>
-    <view
+    <View
+        android:background="#bfbfbf"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@drawable/background"/>
+        android:layout_height="0.1dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,15 +53,16 @@
             android:paddingLeft="16dp"
             android:paddingRight="5dp"
             android:textColor="@color/colorBlack"
-            tools:ignore="RtlHardcoded" />
+            />
         <TextView
-            android:id="@+id/emailTv"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email"
             android:paddingTop="5dp"
             android:textSize="16sp"
             android:textColor="@color/colorBlack"
-            tools:ignore="RtlHardcoded" />
+            />
     </LinearLayout>
+
 </LinearLayout>

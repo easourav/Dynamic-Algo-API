@@ -9,21 +9,37 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom|right"
-        tools:ignore="RtlHardcoded">
+        android:orientation="vertical">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvSearchResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_add"
-            app:fabSize="auto"
-            app:elevation="@dimen/cardview_compat_inset_shadow"
-            android:backgroundTintMode="src_atop"
-            android:backgroundTint="@color/colorSeaGreen"
-            tools:ignore="PrivateResource,UnusedAttribute" />
+        </android.support.v7.widget.RecyclerView>
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|right"
+            tools:ignore="RtlHardcoded">
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorSeaGreen"
+                android:backgroundTintMode="src_atop"
+                android:src="@drawable/ic_add"
+                app:elevation="@dimen/cardview_compat_inset_shadow"
+                app:fabSize="auto"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp"
+                tools:ignore="PrivateResource,UnusedAttribute" />
+        </RelativeLayout>
     </RelativeLayout>
+
 
 
 

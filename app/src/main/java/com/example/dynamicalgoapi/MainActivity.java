@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createPost() {
+
         ProfileRequest profileRequest = new ProfileRequest();
         profileRequest.setName(nameEt.getText().toString());
         profileRequest.setEmail(emailEt.getText().toString());
@@ -73,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
             profileResponseCall.enqueue(new Callback<ProfileResponse>() {
                 @Override
                 public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
-                    //ProfileResponse profileResponse = response.body();
+                    ProfileResponse profileResponse = response.body();
+                    profileResponse.getName();
                     nameEt.setText(null);
                     emailEt.setText(null);
                     aboutEt.setText(null);

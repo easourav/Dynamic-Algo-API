@@ -1,5 +1,5 @@
 
-package com.example.dynamicalgoapi;
+package com.example.dynamicalgoapi.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

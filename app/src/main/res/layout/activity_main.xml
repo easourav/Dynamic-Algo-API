@@ -20,7 +20,7 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="textPersonName"
             android:imeOptions="actionNext"
             android:hint="Name"/>
 
@@ -36,7 +36,7 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:imeOptions="actionNext"
             android:hint="Email"/>
 

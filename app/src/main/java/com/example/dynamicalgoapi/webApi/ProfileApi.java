@@ -14,17 +14,10 @@ import retrofit2.http.Query;
 
 public interface ProfileApi {
 
-    @GET("api/personinfoes")
-    Call<List<ProfileResponse>> getProfile(String aboutme, @Query("Aboutme") String keyword);
-
     @POST("api/personinfoes")
     Call<ProfileResponse> getProfileInfo(@Body ProfileRequest profileRequest);
 
-    @GET("api/personinfoes?Aboutme=hello")
-    Call<List<User>> getUserCollection ();
-
     @GET("api/personinfoes?")
     Call<List<User>> getContact(
-            @Query("Aboutme") String keyword
-    );
+            @Query("Aboutme") String keyword);
 }

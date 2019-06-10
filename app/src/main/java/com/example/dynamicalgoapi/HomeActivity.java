@@ -57,7 +57,6 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         users = new ArrayList<>();
-        String searchingkey = "driver";
 
         floatingActionButton = findViewById(R.id.fabBtn);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -68,8 +67,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         //users = new ArrayList<>();
-        fetchProfile("");
-
+        //fetchProfile("");
+        progressBar.setVisibility(View.GONE);
 
     }
 
@@ -124,6 +123,7 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                progressBar.setVisibility(View.VISIBLE);
                 fetchProfile(newText);
                 return false;
             }

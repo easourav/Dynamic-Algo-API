@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
     public static Retrofit getClient(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://www.dynamicalgo.somee.com/")
+                .baseUrl("http://www.dynamicalgoapi.somee.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit;

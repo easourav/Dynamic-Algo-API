@@ -14,6 +14,8 @@ import com.example.dynamicalgoapi.webApi.RetrofitClient;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,6 +24,11 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     Button saveBtn, cencelBtn;
     EditText nameEt, emailEt, aboutEt;
+    String emailPattern = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\ +]{1,256}" +
+            "\\@" + "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+            "(" + "\\." +
+            "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+            ")+";
 
     ProfileApi profileApi;
 
@@ -58,33 +65,46 @@ public class MainActivity extends AppCompatActivity {
         profileRequest.setName(nameEt.getText().toString());
         profileRequest.setEmail(emailEt.getText().toString());
         profileRequest.setAboutMe(aboutEt.getText().toString());
+        Matcher matcher = Pattern.compile(emailPattern).matcher(emailEt.getText().toString().trim());
 
-        if(nameEt.length()==0){
+        if (nameEt.length() == 0) {
             nameEt.setError("Input Name");
 
-        }
-        else if (emailEt.length()==0){
+        } else if (emailEt.length() == 0) {
             emailEt.setError("Input Email");
-        }
-        else if (aboutEt.length()==0){
+        } else if (!matcher.matches()) {
+            emailEt.setError("Input valid Email");
+        } else if (aboutEt.length() == 0) {
             aboutEt.setError("Input about");
-        }
-        else {
+        } else {
             Call<ProfileResponse> profileResponseCall = profileApi.getProfileInfo(profileRequest);
             profileResponseCall.enqueue(new Callback<ProfileResponse>() {
                 @Override
                 public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
-                    ProfileResponse profileResponse = response.body();
-                    profileResponse.getName();
-                    nameEt.setText(null);
-                    emailEt.setText(null);
-                    aboutEt.setText(null);
-                    Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                    if (response.isSuccessful()) {
+
+                        ProfileResponse profileResponse = response.body();
+                        profileResponse.getName();
+                        nameEt.setText(null);
+                        emailEt.setText(null);
+                        aboutEt.setText(null);
+                        Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
+
 
                 @Override
                 public void onFailure(Call<ProfileResponse> call, Throwable t) {
-                    Toast.makeText(MainActivity.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    String errorMessage =t.getMessage();
+                    //String s = String.valueOf(errorMessage);
+                    String s = "java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 2 path $";
+                    if (s.equals(t.getMessage())){
+                        Toast.makeText(MainActivity.this, "Email already exist", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(MainActivity.this, "Error: "+errorMessage, Toast.LENGTH_SHORT).show();
+                    }
 
                 }
             });

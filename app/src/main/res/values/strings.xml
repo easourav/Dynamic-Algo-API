@@ -2,4 +2,5 @@
     <string name="app_name">Dynamic Algo API</string>
     <string name="name">Name: </string>
     <string name="email">Email: </string>
+    <string name="details">Details: </string>
 </resources>

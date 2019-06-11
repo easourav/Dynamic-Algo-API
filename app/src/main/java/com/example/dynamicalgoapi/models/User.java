@@ -12,6 +12,9 @@ public class User {
     @SerializedName("Email")
     @Expose
     private String email;
+    @SerializedName("AboutMe")
+    @Expose
+    private String aboutMe;
 
     public String getName() {
         return name;
@@ -27,6 +30,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAboutMe() {
+        return aboutMe;
+    }
+
+    public void setAboutMe(String aboutMe) {
+        this.aboutMe = aboutMe;
     }
 
 }

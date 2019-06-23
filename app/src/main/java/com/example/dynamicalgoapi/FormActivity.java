@@ -12,8 +12,6 @@ import com.example.dynamicalgoapi.models.ProfileResponse;
 import com.example.dynamicalgoapi.webApi.ProfileApi;
 import com.example.dynamicalgoapi.webApi.RetrofitClient;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class FormActivity extends AppCompatActivity {
     Button saveBtn, cencelBtn;
     EditText nameEt, emailEt, aboutEt;
     String emailPattern = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\ +]{1,256}" +
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_form);
         saveBtn = findViewById(R.id.btnSave);
         cencelBtn = findViewById(R.id.btnCancel);
         nameEt = findViewById(R.id.etName);
@@ -88,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                         nameEt.setText(null);
                         emailEt.setText(null);
                         aboutEt.setText(null);
-                        Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FormActivity.this, "Saved", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -100,10 +98,10 @@ public class MainActivity extends AppCompatActivity {
                     //String s = String.valueOf(errorMessage);
                     String s = "java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 2 path $";
                     if (s.equals(t.getMessage())){
-                        Toast.makeText(MainActivity.this, "Email already exist", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FormActivity.this, "Email already exist", Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        Toast.makeText(MainActivity.this, "Error: "+errorMessage, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FormActivity.this, "Error: "+errorMessage, Toast.LENGTH_SHORT).show();
                     }
 
                 }

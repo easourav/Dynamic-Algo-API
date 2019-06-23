@@ -2,7 +2,6 @@ package com.example.dynamicalgoapi.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import com.example.dynamicalgoapi.R;
 import com.example.dynamicalgoapi.UserDetailsActivity;
 import com.example.dynamicalgoapi.models.ProfileRequest;
-import com.example.dynamicalgoapi.models.ProfileResponse;
 import com.example.dynamicalgoapi.models.User;
 
 import java.util.List;
@@ -31,7 +29,7 @@ public class SearchViewAdapter extends RecyclerView.Adapter<SearchViewAdapter.My
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout_design, parent, false);
         return new MyViewHolder(view);
     }
 

@@ -18,6 +18,6 @@ public interface ProfileApi {
     Call<ProfileResponse> getProfileInfo(@Body ProfileRequest profileRequest);
 
     @GET("api/personinfoes?")
-    Call<List<User>> getContact(
+    Call<User> getContact(
             @Query("Aboutme") String keyword);
 }

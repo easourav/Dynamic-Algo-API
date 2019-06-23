@@ -10,16 +10,173 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvSearchResult"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v7.widget.RecyclerView>
         <ProgressBar
             android:id="@+id/progressbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:id="@+id/layoutButton"
+                android:background="@color/colorFaideSeaGreen"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/searchLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:gravity="center">
+                    <EditText
+                        android:id="@+id/etSearch"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="35dp"
+                        android:inputType="number"
+                        android:background="@drawable/border_bold"
+                        android:padding="5dp"
+                        android:drawableLeft="@drawable/ic_search"
+                        android:hint="Please enter your NID"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".8"
+                    android:layout_below="@+id/searchLayout"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    >
+                    <Button
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:text="Submit"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorWhite"
+                        android:textAllCaps="false"
+                        android:background="@drawable/search_button_background"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_below="@id/layoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="11dp">
+                <android.support.v7.widget.CardView
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_below="@id/layoutButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:padding="20dp">
+                        <LinearLayout
+                            android:id="@+id/nameLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Name: "
+                                        android:layout_marginLeft="20dp"
+                                        android:layout_marginRight="5dp"
+                                        android:textStyle="bold|italic"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="18sp"/>
+                                    <TextView
+                                        android:id="@+id/tvName"
+                                        android:text="Estiak Ahmed Sourav"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16sp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        />
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/emailLayout"
+                            android:layout_marginTop="10dp"
+                            android:layout_below="@id/nameLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:gravity="center">
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Email: "
+                                        android:layout_marginLeft="20dp"
+                                        android:layout_marginRight="5dp"
+                                        android:textStyle="bold|italic"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="18sp"/>
+                                    <TextView
+                                        android:id="@+id/tvEmail"
+                                        android:text="easourav@gmail.com"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16sp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        />
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
+                        <RelativeLayout
+                            android:layout_below="@id/emailLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="10dp">
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:id="@+id/tvCitizen"
+                                    android:text="Citizen 50% Good/Bad"
+                                    android:textColor="@color/colorSeaGreen"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    android:textAlignment="center"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginLeft="35dp"
+                                    android:layout_marginRight="35dp"
+                                    android:padding="5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    />
+                            </android.support.v7.widget.CardView>
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+            </RelativeLayout>
+
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

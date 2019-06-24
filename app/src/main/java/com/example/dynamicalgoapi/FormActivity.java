@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.dynamicalgoapi.models.ProfileRequest;
@@ -21,7 +22,8 @@ import retrofit2.Response;
 
 public class FormActivity extends AppCompatActivity {
     Button saveBtn, cencelBtn;
-    EditText nameEt, emailEt, aboutEt;
+    ProgressBar dataSavePB;
+    EditText nameEt, emailEt, aboutEt, nidET;
     String emailPattern = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\ +]{1,256}" +
             "\\@" + "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
             "(" + "\\." +
@@ -38,7 +40,11 @@ public class FormActivity extends AppCompatActivity {
         cencelBtn = findViewById(R.id.btnCancel);
         nameEt = findViewById(R.id.etName);
         emailEt = findViewById(R.id.etEmail);
+        nidET = findViewById(R.id.etNid);
         aboutEt = findViewById(R.id.etAbout);
+        dataSavePB = findViewById(R.id.pbDataSave);
+
+        dataSavePB.setVisibility(View.INVISIBLE);
 
         profileApi = RetrofitClient.getClient().create(ProfileApi.class);
 
@@ -58,10 +64,12 @@ public class FormActivity extends AppCompatActivity {
     }
 
     private void createPost() {
+        dataSavePB.setVisibility(View.VISIBLE);
 
         ProfileRequest profileRequest = new ProfileRequest();
         profileRequest.setName(nameEt.getText().toString());
         profileRequest.setEmail(emailEt.getText().toString());
+        profileRequest.setNID(nidET.getText().toString());
         profileRequest.setAboutMe(aboutEt.getText().toString());
         Matcher matcher = Pattern.compile(emailPattern).matcher(emailEt.getText().toString().trim());
 
@@ -72,6 +80,8 @@ public class FormActivity extends AppCompatActivity {
             emailEt.setError("Input Email");
         } else if (!matcher.matches()) {
             emailEt.setError("Input valid Email");
+        } else if (nidET.length() == 0) {
+            nidET.setError("Input valid Email");
         } else if (aboutEt.length() == 0) {
             aboutEt.setError("Input about");
         } else {
@@ -86,7 +96,9 @@ public class FormActivity extends AppCompatActivity {
                         nameEt.setText(null);
                         emailEt.setText(null);
                         aboutEt.setText(null);
+                        nidET.setText(null);
                         Toast.makeText(FormActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                        dataSavePB.setVisibility(View.INVISIBLE);
                     }
 
                 }
@@ -94,6 +106,7 @@ public class FormActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<ProfileResponse> call, Throwable t) {
+                    dataSavePB.setVisibility(View.INVISIBLE);
                     String errorMessage =t.getMessage();
                     //String s = String.valueOf(errorMessage);
                     String s = "java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 2 path $";

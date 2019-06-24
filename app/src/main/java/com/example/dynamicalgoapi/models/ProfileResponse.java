@@ -15,6 +15,9 @@ public class ProfileResponse {
     @SerializedName("Email")
     @Expose
     private String email;
+    @SerializedName("NID")
+    @Expose
+    private String nID;
     @SerializedName("AboutMe")
     @Expose
     private String aboutMe;
@@ -41,6 +44,14 @@ public class ProfileResponse {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getNID() {
+        return nID;
+    }
+
+    public void setNID(String nID) {
+        this.nID = nID;
     }
 
     public String getAboutMe() {

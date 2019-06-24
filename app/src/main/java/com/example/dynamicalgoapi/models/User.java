@@ -1,4 +1,3 @@
-
 package com.example.dynamicalgoapi.models;
 
 import com.google.gson.annotations.Expose;
@@ -6,38 +5,48 @@ import com.google.gson.annotations.SerializedName;
 
 public class User {
 
-    @SerializedName("Name")
     @Expose
-    private String name;
+    private String Name;
     @SerializedName("Email")
     @Expose
-    private String email;
+    private String Email;
     @SerializedName("AboutMe")
     @Expose
-    private String aboutMe;
+    private String AboutMe;
+    @SerializedName("CitizenRate")
+    @Expose
+    private String CitizenRate;
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.Email = email;
     }
 
     public String getAboutMe() {
-        return aboutMe;
+        return AboutMe;
     }
 
     public void setAboutMe(String aboutMe) {
-        this.aboutMe = aboutMe;
+        this.AboutMe = aboutMe;
+    }
+
+    public Object getCitizenRate() {
+        return CitizenRate;
+    }
+
+    public void setCitizenRate(String citizenRate) {
+        this.CitizenRate = citizenRate;
     }
 
 }

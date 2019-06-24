@@ -11,10 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:ignore="UselessParent">
-        <ProgressBar
-            android:id="@+id/progressbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -55,6 +52,7 @@
                     android:layout_marginTop="5dp"
                     >
                     <Button
+                        android:id="@+id/btnSearch"
                         android:layout_width="150dp"
                         android:layout_height="match_parent"
                         android:text="Submit"
@@ -105,7 +103,6 @@
                                         android:textSize="18sp"/>
                                     <TextView
                                         android:id="@+id/tvName"
-                                        android:text="Estiak Ahmed Sourav"
                                         android:textColor="@color/colorBlack"
                                         android:textSize="16sp"
                                         android:layout_width="match_parent"
@@ -140,7 +137,6 @@
                                         android:textSize="18sp"/>
                                     <TextView
                                         android:id="@+id/tvEmail"
-                                        android:text="easourav@gmail.com"
                                         android:textColor="@color/colorBlack"
                                         android:textSize="16sp"
                                         android:layout_width="match_parent"
@@ -159,10 +155,10 @@
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:id="@+id/tvCitizen"
-                                    android:text="Citizen 50% Good/Bad"
+                                    android:text="Citizenship percentage NULL "
                                     android:textColor="@color/colorSeaGreen"
                                     android:textStyle="bold"
-                                    android:textSize="18sp"
+                                    android:textSize="14sp"
                                     android:textAlignment="center"
                                     android:layout_marginTop="15dp"
                                     android:layout_marginLeft="35dp"
@@ -173,11 +169,16 @@
                                     />
                             </android.support.v7.widget.CardView>
                         </RelativeLayout>
+
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
             </RelativeLayout>
 
         </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

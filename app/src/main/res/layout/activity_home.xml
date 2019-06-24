@@ -9,7 +9,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
         <ProgressBar
             android:id="@+id/progressbar"
             android:layout_width="match_parent"
@@ -38,10 +39,10 @@
                         android:background="@drawable/border_bold"
                         android:padding="5dp"
                         android:drawableLeft="@drawable/ic_search"
-                        android:hint="Please enter your NID"
+                        android:hint="@string/please_enter_your_nid"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        />
+                        tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -196,8 +197,5 @@
                 tools:ignore="PrivateResource,UnusedAttribute" />
         </RelativeLayout>
     </RelativeLayout>
-
-
-
 
 </LinearLayout>
